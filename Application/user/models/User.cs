@@ -14,11 +14,7 @@ namespace Application
         private string fullName;
         private string address;
         private string type;
-
-        public User()
-        {
-
-        }
+            
 
         public User(string type, string id, string email, string password, string fullName, string address)
         {
@@ -43,6 +39,11 @@ namespace Application
             
         }
 
+        public string Type
+        {
+            get { return this.type; }
+            set { this.type = value; }
+        }
         public string Id
         {
             get { return this.id; }
@@ -77,11 +78,11 @@ namespace Application
         {
             string text = "";
 
-            text += "Id-ul userului este " + this.id + "\n";
-            text += "Numele userului este " + this.fullName + "\n";
-            text += "Emailul userului este " + this.email + "\n";
-            text+="Parola userului este "+this.address + "\n";
-            text += "Adresa userului este" + this.address + "\n";
+            text += "Id-ul este " + this.id + "\n";
+            text += "Numele este " + this.fullName + "\n";
+            text += "Emailul este " + this.email + "\n";
+            text+="Parola este "+this.address + "\n";
+            text += "Adresa este" + this.address + "\n";
 
             return text;
         }

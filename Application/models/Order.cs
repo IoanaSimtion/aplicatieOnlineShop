@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application
+namespace Application.models
 {
     public class Order : OrderDetails
     {
@@ -26,20 +26,20 @@ namespace Application
 
         public string Id
         {
-            get { return this.id; }
-            set { this.id = value; }
+            get { return id; }
+            set { id = value; }
         }
 
         public string CustomerId
         {
-            get { return this.customerId; }
-            set { this.customerId = value; }
+            get { return customerId; }
+            set { customerId = value; }
         }
 
         public int Ammount
         {
-            get { return this.ammount; }
-            set { this.ammount = value; }
+            get { return ammount; }
+            set { ammount = value; }
         }
     }
 }

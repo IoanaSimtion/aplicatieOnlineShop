@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application
+namespace Application.models
 {
     public class Product
     {
@@ -15,7 +15,7 @@ namespace Application
         private string image;
         private DateTime date;
         private int stock;
-        
+
         public Product()
         {
 
@@ -34,55 +34,55 @@ namespace Application
 
         public string Id
         {
-            get { return this.id; }
-            set { this.id = value; }
+            get { return id; }
+            set { id = value; }
         }
 
         public string Name
         {
-            get { return this.name; }
-            set { this.name = value; }
+            get { return name; }
+            set { name = value; }
         }
 
         public int Price
         {
-            get { return this.price; }
-            set { this.price = value; }
+            get { return price; }
+            set { price = value; }
         }
 
         public DateTime Date
         {
-            get { return this.date; }
-            set { this.date = value; }
+            get { return date; }
+            set { date = value; }
         }
 
         public int Stock
         {
-            get { return this.stock; }
-            set { this.stock = value; }
+            get { return stock; }
+            set { stock = value; }
         }
 
         public string Image
         {
-            get { return this.image; }
-            set { this.image = value; }
+            get { return image; }
+            set { image = value; }
         }
 
         public string Description
         {
-            get { return this.description; }
-            set { this.description = value; }
+            get { return description; }
+            set { description = value; }
         }
 
         public void descriere()
         {
             string text = "";
 
-            text += "Id-ul produsului este " + this.id + "\n";
-            text += "Numele produsului este " + this.name + "\n";
-            text += "Pretul produsului este " + this.price + "\n";
-            text += "Descrierea produsului este " + this.description + "\n";
-            text+="Stocul produsului este "+this.stock + "\n"; 
+            text += "Id-ul produsului este " + id + "\n";
+            text += "Numele produsului este " + name + "\n";
+            text += "Pretul produsului este " + price + "\n";
+            text += "Descrierea produsului este " + description + "\n";
+            text += "Stocul produsului este " + stock + "\n";
         }
 
     }
