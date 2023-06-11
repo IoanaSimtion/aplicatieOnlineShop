@@ -50,9 +50,9 @@ namespace Application.models
             set { blocked = value; }
         }
 
-        public string descreiereClient()
+        public override string ToString()
         {
-            string text = base.descriereUser();
+            string text = base.ToString();
 
             if (this.abonament)
             {
@@ -75,5 +75,17 @@ namespace Application.models
 
             return text;
         }
+
+        public override string returnSave()
+        {
+            string format = "dd/MM/yyyy";
+
+            string save=base.returnSave();
+
+            save += this.abonament + "," + this.ultimaComanda.ToString(format) + "," + this.blocked;
+
+            return save;
+        }
+
     }
 }

@@ -32,10 +32,11 @@ namespace Application
 
             this.type = propr[0];
             this.id = propr[1];
-            this.fullName = propr[2];
-            this.email = propr[3];
-            this.password = propr[4];
+            this.email = propr[2];
+            this.password = propr[3];
+            this.fullName = propr[4];
             this.address = propr[5];
+
             
         }
 
@@ -74,18 +75,25 @@ namespace Application
             set { this.address = value; }
         }
 
-        public string descriereUser()
+        public override string ToString()   
         {
             string text = "";
 
             text += "Id-ul este " + this.id + "\n";
             text += "Numele este " + this.fullName + "\n";
             text += "Emailul este " + this.email + "\n";
-            text+="Parola este "+this.address + "\n";
-            text += "Adresa este" + this.address + "\n";
+            text+="Parola este "+this.password + "\n";
+            text += "Adresa este " + this.address + "\n";
 
             return text;
         }
-                
+               
+        public virtual string returnSave()
+        {
+            string save = this.type + "," + this.id + "," + this.email + "," + this.password + "," + this.fullName + "," + this.address + ",";
+
+            return save;
+        }
+
     }
 }
