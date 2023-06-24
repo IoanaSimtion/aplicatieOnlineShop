@@ -55,9 +55,9 @@ namespace Application.models
             set { editProducts = value; }
         }
 
-        public string descriereAdmin()
+        public override string ToString()
         {
-            string text = base.descriereUser();
+            string text = base.ToString();
 
             if (this.readClients)
             {
@@ -92,6 +92,16 @@ namespace Application.models
             }
 
             return text;
+        }
+
+
+        public override string returnSave()
+        {
+            string save = base.returnSave();
+
+            save += this.readClients+"," + this.editClients+ "," + this.readProducts + "," + this.editProducts;
+
+            return save;
         }
     }
 

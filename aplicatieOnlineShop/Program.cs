@@ -1,4 +1,5 @@
 using Application.user.service;
+using System.Diagnostics;
 
 namespace aplicatieOnlineShop
 {
@@ -19,6 +20,10 @@ namespace aplicatieOnlineShop
             UserService userService = new UserService();
 
             userService.afisare();
+
+            //Debug.WriteLine(userService.saveUsers());
+
+            userService.save();
 
         }
     }
