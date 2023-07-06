@@ -1,5 +1,4 @@
-﻿
-
+﻿using Application.models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,39 +9,43 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace aplicatieOnlineShop.forms
+namespace view.formsOnlineShop
 {
-    public partial class MainPage : Form
+    public partial class Main : Form
     {
 
         private Panel pnlContainer;
         private Panel pnlHeader;
         private Panel pnlHeader2;
         private Button menu;
-        private Button cart;
         private ComboBox filtru;
         private Label produse;
         private Label titlu;
-        public MainPage()
+        public Main()
         {
             InitializeComponent();
             setContainer();
             setHeader2();
             setHeader();
+            this.WindowState = FormWindowState.Maximized;
         }
 
-        private void MainPage_Load(object sender, EventArgs e)
+        private void Main_Load(object sender, EventArgs e)
         {
 
         }
+
+        
 
         private void PopulateContainer(Panel container)
         {
+            ProductService products = new ProductService();
+
             int x = 0, y = 80, k = 1;
 
-            for (int i = 0; i < 6; i++)
+            for (int i = 0; i < products.cardsNumber(); i++)
             {
-                Card card = new Card(container)
+                Cards card = new Cards(container, "sadd", "nume", 143, "descriperv ", "D:\\mycode\\icons\\download.png", 12)
                 {
                     Parent = container,
                     Location = new Point(x, y)
@@ -66,11 +69,27 @@ namespace aplicatieOnlineShop.forms
 
         private void setHeader()
         {
+            PictureBox cartIcon = new PictureBox();
+            Label cart = new Label();
+
+            cartIcon.Image = Image.FromFile("D:\\mycode\\icons\\cart.png");
+            cartIcon.Location = new Point(1855, 20);
+            cartIcon.SizeMode = PictureBoxSizeMode.Zoom;
+            cartIcon.Size = new Size(52, 41);
+            cartIcon.BackColor = Color.LightSkyBlue;
+
+            cart.Text = "Cart";
+            cart.Location = new Point(1857, 65);
+            cart.Size = new Size(100, 100);
+            cart.ForeColor = Color.White;
+            cart.Font = new Font("Century Gothic", 10, FontStyle.Bold);
 
             titlu = new Label();
             titlu.Text = "Online shop";
-            titlu.Location = new Point(this.Width / 2, 94 / 2);
-            titlu.Size = new Size(100, 100);
+            titlu.Location = new Point(850, 30);
+            titlu.Size = new Size(300, 300);
+            titlu.Font = new Font("Century Gothic", 18, FontStyle.Bold);
+            titlu.ForeColor = Color.White;
 
             pnlHeader = new Panel();
             pnlHeader.Dock = DockStyle.Top;
@@ -78,12 +97,12 @@ namespace aplicatieOnlineShop.forms
             pnlHeader.Height = 94;
 
             pnlHeader.Controls.Add(titlu);
+            pnlHeader.Controls.Add(cartIcon);
+            pnlHeader.Controls.Add(cart);
             this.Controls.Add(pnlHeader);
 
 
         }
-
-
         private void setHeader2()
         {
 
@@ -104,7 +123,7 @@ namespace aplicatieOnlineShop.forms
         {
             pnlContainer = new Panel();
             pnlContainer.Dock = DockStyle.Fill;
-            pnlContainer.BackColor = Color.LavenderBlush;
+            pnlContainer.BackColor = Color.White;
             pnlContainer.AutoScroll = true;
             PopulateContainer(pnlContainer);
 

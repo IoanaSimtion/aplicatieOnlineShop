@@ -1,4 +1,5 @@
 using aplicatieOnlineShop.forms;
+using Application.models;
 using Application.user.service;
 using System.Diagnostics;
 
@@ -16,7 +17,7 @@ namespace aplicatieOnlineShop
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             //Application.Run(new Form1());
-            Application.Run(new LoginPage());
+            //Application.Run(new LoginPage());
             //Application.Run(new MainPage());
 
 
@@ -27,6 +28,9 @@ namespace aplicatieOnlineShop
             //Debug.WriteLine(userService.saveUsers());
 
             //userService.save();
+
+            ProductService products = new ProductService();
+            products.afisare();
 
         }
     }

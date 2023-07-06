@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace aplicatieOnlineShop.forms.MainPage
+namespace aplicatieOnlineShop.forms
 {
     public class Card : Panel
     {

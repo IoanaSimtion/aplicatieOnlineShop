@@ -10,10 +10,9 @@ namespace Application.models
     {
         private string id;
         private string name;
-        private int price;
+        private float price;
         private string description;
         private string image;
-        private DateTime date;
         private int stock;
 
         public Product()
@@ -21,15 +20,26 @@ namespace Application.models
 
         }
 
-        public Product(string id, string name, int price, string description, string image, int stock, DateTime date)
+        public Product(string id, string name, int price, string description, string image, int stock)
         {
             this.id = id;
             this.name = name;
             this.price = price;
             this.description = description;
             this.image = image;
-            this.date = date;
             this.stock = stock;
+        }
+
+        public Product(string properties)
+        {
+            string[] propr=properties.Split(",");
+
+            this.id=propr[0];
+            this.name = propr[1];
+            this.price = float.Parse(propr[2]);
+            this.description=propr[3];
+            this.image= propr[4];
+            this.stock = Int32.Parse(propr[5]);
         }
 
         public string Id
@@ -44,16 +54,10 @@ namespace Application.models
             set { name = value; }
         }
 
-        public int Price
+        public float Price
         {
             get { return price; }
             set { price = value; }
-        }
-
-        public DateTime Date
-        {
-            get { return date; }
-            set { date = value; }
         }
 
         public int Stock
